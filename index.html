@@ -472,6 +472,19 @@
       display: none;
     }
 
+    .warn.warn-amber {
+      border-color: rgba(217, 119, 6, 0.12) !important;
+      background: rgba(255, 251, 235, 0.65) !important;
+    }
+
+    .warn.warn-amber .warn-top svg {
+      color: var(--amber-500);
+    }
+
+    .warn.warn-amber .warn-top h3 {
+      color: var(--amber-600);
+    }
+
     .warn.show {
       display: block;
       animation: enter 0.45s var(--ease);
@@ -921,7 +934,7 @@
       </div>
     </div>
 
-    <!-- Warning -->
+    <!-- Warning: ไม่ได้ใช้ WiFi สำนักงาน -->
     <div class="warn card" id="wP">
       <div class="warn-top">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -939,6 +952,30 @@
         <ol>
           <li>ปิด <strong>Mobile Data</strong> (เครือข่ายมือถือ)</li>
           <li>เชื่อมต่อ <strong>WiFi สำนักงาน</strong></li>
+          <li>กด <strong>"ตรวจสอบอีกครั้ง"</strong> ด้านล่าง</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Warning: เชื่อมต่อ WiFi แต่เปิด Mobile Data ร่วมด้วย -->
+    <div class="warn warn-amber card" id="wDual">
+      <div class="warn-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M12 20h.01" />
+          <path d="M2 8.82a15 15 0 0 1 20 0" />
+          <path d="M5 12.859a10 10 0 0 1 14 0" />
+          <path d="M8.5 16.429a5 5 0 0 1 7 0" />
+        </svg>
+        <div>
+          <h3>อาจเปิด Mobile Data ร่วมกับ WiFi อยู่</h3>
+          <p>เชื่อมต่อ WiFi อยู่ แต่ IP ไม่ตรงกับสำนักงาน<br>อาจเป็นเพราะ <strong>เปิด Mobile Data ค้างไว้</strong> ทำให้ข้อมูลวิ่งผ่านเครือข่ายมือถือแทน</p>
+        </div>
+      </div>
+      <div class="warn-list">
+        <ol>
+          <li>เปิด <strong>ตั้งค่า</strong> มือถือ</li>
+          <li><strong>ปิด Mobile Data</strong> (เครือข่ายมือถือ) ให้เหลือแค่ WiFi</li>
           <li>กด <strong>"ตรวจสอบอีกครั้ง"</strong> ด้านล่าง</li>
         </ol>
       </div>
@@ -1039,6 +1076,7 @@
       ipRow: document.getElementById('ipR'),
       ipValue: document.getElementById('ipV'),
       warningPanel: document.getElementById('wP'),
+      dualWarningPanel: document.getElementById('wDual'),
       btnGo: document.getElementById('bGo'),
       btnGoText: document.getElementById('bGoT'),
       btnRecheck: document.getElementById('bRe'),
@@ -1065,6 +1103,7 @@
       checking: { card: 's-pend', icon: 'ic-pend', svg: ICONS.wifi, title: 'กำลังตรวจสอบเครือข่าย...', desc: 'รอสักครู่', color: 'c-pend' },
       ok: { card: 's-ok', icon: 'ic-ok', svg: ICONS.ok, title: 'เชื่อมต่อ WiFi สำนักงาน', desc: 'พร้อมลงเวลา — จะบันทึกเป็น "ที่ทำงาน"', color: 'c-ok' },
       wifiUnknown: { card: 's-ok', icon: 'ic-ok', svg: ICONS.wifi, title: 'เชื่อมต่อ WiFi อยู่', desc: 'ตรวจพบ WiFi — หากเป็น WiFi สำนักงาน สามารถลงเวลาได้', color: 'c-ok' },
+      wifiDualConnection: { card: 's-warn', icon: 'ic-warn', svg: ICONS.wifi, title: 'อาจเปิด Mobile Data ร่วมกับ WiFi', desc: 'เชื่อมต่อ WiFi อยู่ แต่ IP ไม่ตรง — กรุณาปิด Mobile Data', color: 'c-warn', showDualWarning: true },
       wifiNotOffice: { card: 's-warn', icon: 'ic-warn', svg: ICONS.warn, title: 'ไม่ใช่ WiFi สำนักงาน', desc: 'IP ไม่ตรงกับ WiFi สำนักงานที่บันทึกไว้', color: 'c-warn', showWarning: true },
       cellular: { card: 's-warn', icon: 'ic-warn', svg: ICONS.phone, title: 'ใช้เครือข่ายมือถือ (Mobile Data)', desc: 'ลงเวลาตอนนี้อาจบันทึกเป็น "ที่บ้าน"', color: 'c-warn', showWarning: true },
       ipMismatch: { card: 's-warn', icon: 'ic-warn', svg: ICONS.warn, title: 'IP ไม่ตรงกับสำนักงาน', desc: 'อาจใช้ Mobile Data หรือ WiFi อื่นอยู่', color: 'c-warn', showWarning: true },
@@ -1148,7 +1187,7 @@
       } else if (connectionType === 'wifi') {
         if (hasOfficeIps) {
           networkOk = false;
-          setStatus('wifiNotOffice');
+          setStatus('wifiDualConnection');
         } else {
           networkOk = true;
           setStatus('wifiUnknown');
@@ -1181,12 +1220,15 @@
     function setStatus(statusKey) {
       const status = STATUS_MAP[statusKey] || STATUS_MAP.checking;
 
+      /* รีเซ็ตทุก element */
       el.statusCard.className = 'st-box card';
       el.statusIcon.className = 'st-ic';
       el.statusTitle.className = '';
       el.warningPanel.classList.remove('show');
+      el.dualWarningPanel.classList.remove('show');
       el.btnRecheck.style.display = 'none';
 
+      /* ตั้งค่าสถานะใหม่ */
       el.statusCard.classList.add(status.card);
       el.statusIcon.classList.add(status.icon);
       el.statusIcon.innerHTML = status.svg;
@@ -1196,6 +1238,11 @@
 
       if (status.showWarning) {
         el.warningPanel.classList.add('show');
+        el.btnRecheck.style.display = 'flex';
+      }
+
+      if (status.showDualWarning) {
+        el.dualWarningPanel.classList.add('show');
         el.btnRecheck.style.display = 'flex';
       }
 
