@@ -1,716 +1,1318 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<title>ลงเวลาปฏิบัติงาน — กระทรวงยุติธรรม</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    /* Primary — clean blue */
-    --blue-600: #2563eb;
-    --blue-500: #3b82f6;
-    --blue-400: #60a5fa;
-    --blue-100: #dbeafe;
-    --blue-50: #eff6ff;
-    --blue-glow: rgba(37,99,235,0.12);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>ลงเวลาปฏิบัติงาน — สำนักงานปลัดกระทรวงยุติธรรม</title>
+  <meta name="description" content="ระบบตรวจสอบเครือข่าย WiFi สำนักงานก่อนลงเวลาปฏิบัติงาน — สำนักงานปลัดกระทรวงยุติธรรม">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      /* Primary — clean blue */
+      --blue-600: #2563eb;
+      --blue-500: #3b82f6;
+      --blue-400: #60a5fa;
+      --blue-100: #dbeafe;
+      --blue-50: #eff6ff;
+      --blue-glow: rgba(37, 99, 235, 0.12);
 
-    /* Neutral — slate */
-    --slate-900: #0f172a;
-    --slate-800: #1e293b;
-    --slate-700: #334155;
-    --slate-600: #475569;
-    --slate-500: #64748b;
-    --slate-400: #94a3b8;
-    --slate-300: #cbd5e1;
-    --slate-200: #e2e8f0;
-    --slate-100: #f1f5f9;
-    --slate-50: #f8fafc;
+      /* Neutral — slate */
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-400: #94a3b8;
+      --slate-300: #cbd5e1;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
 
-    /* Status */
-    --green-600: #059669;
-    --green-500: #10b981;
-    --green-100: #d1fae5;
-    --green-50: #ecfdf5;
-    --red-600: #dc2626;
-    --red-500: #ef4444;
-    --red-100: #fee2e2;
-    --red-50: #fef2f2;
-    --amber-600: #d97706;
-    --amber-500: #f59e0b;
-    --amber-100: #fef3c7;
-    --amber-50: #fffbeb;
-    --orange-500: #f97316;
-    --orange-600: #ea580c;
+      /* Status */
+      --green-600: #059669;
+      --green-500: #10b981;
+      --green-100: #d1fae5;
+      --green-50: #ecfdf5;
+      --red-600: #dc2626;
+      --red-500: #ef4444;
+      --red-100: #fee2e2;
+      --red-50: #fef2f2;
+      --amber-600: #d97706;
+      --amber-500: #f59e0b;
+      --amber-100: #fef3c7;
+      --amber-50: #fffbeb;
+      --orange-500: #f97316;
+      --orange-600: #ea580c;
 
-    /* Layout */
-    --bg: #f8fafc;
-    --card-bg: rgba(255,255,255,0.82);
-    --card-border: rgba(15,23,42,0.06);
-    --card-border-hover: rgba(15,23,42,0.10);
-    --shadow-sm: 0 1px 2px rgba(15,23,42,0.04);
-    --shadow: 0 1px 3px rgba(15,23,42,0.05), 0 4px 16px rgba(15,23,42,0.04);
-    --shadow-md: 0 2px 4px rgba(15,23,42,0.05), 0 10px 32px rgba(15,23,42,0.07);
-    --shadow-blue: 0 4px 14px rgba(37,99,235,0.18), 0 8px 24px rgba(37,99,235,0.08);
-    --r-lg: 20px;
-    --r-md: 14px;
-    --r-sm: 10px;
+      /* Layout */
+      --bg: #f8fafc;
+      --card-bg: rgba(255, 255, 255, 0.82);
+      --card-border: rgba(15, 23, 42, 0.06);
+      --card-border-hover: rgba(15, 23, 42, 0.10);
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow: 0 1px 3px rgba(15, 23, 42, 0.05), 0 4px 16px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 2px 4px rgba(15, 23, 42, 0.05), 0 10px 32px rgba(15, 23, 42, 0.07);
+      --shadow-blue: 0 4px 14px rgba(37, 99, 235, 0.18), 0 8px 24px rgba(37, 99, 235, 0.08);
+      --r-lg: 20px;
+      --r-md: 14px;
+      --r-sm: 10px;
 
-    /* Animation */
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --dur: 0.35s;
-  }
+      /* Animation */
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --dur: 0.35s;
+    }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  body {
-    font-family: 'Noto Sans Thai', sans-serif;
-    background: var(--bg);
-    min-height: 100vh;
-    min-height: 100dvh;
-    color: var(--slate-800);
-    -webkit-font-smoothing: antialiased;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    body {
+      font-family: 'Noto Sans Thai', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      min-height: 100dvh;
+      color: var(--slate-800);
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  /* ── Ambient ── */
-  .ambient {
-    position: fixed; inset: 0; z-index: 0;
-    pointer-events: none; overflow: hidden;
-  }
-  .glow {
-    position: absolute; border-radius: 50%;
-    filter: blur(90px); opacity: 0.6;
-    animation: drift 24s ease-in-out infinite;
-  }
-  .glow-a {
-    width: 420px; height: 420px;
-    top: -140px; right: -80px;
-    background: radial-gradient(circle, rgba(37,99,235,0.07), transparent 70%);
-  }
-  .glow-b {
-    width: 380px; height: 380px;
-    bottom: -120px; left: -60px;
-    background: radial-gradient(circle, rgba(14,165,233,0.05), transparent 70%);
-    animation-delay: -8s;
-    animation-direction: reverse;
-  }
-  @keyframes drift {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(18px, -12px) scale(1.04); }
-  }
-  .dots {
-    position: fixed; inset: 0; z-index: 0;
-    pointer-events: none; opacity: 0.03;
-    background-image: radial-gradient(circle at 1px 1px, var(--slate-500) 0.5px, transparent 0.5px);
-    background-size: 28px 28px;
-  }
+    /* ── Ambient ── */
+    .ambient {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
 
-  /* ── Container ── */
-  .wrap {
-    position: relative; z-index: 2;
-    width: 100%; max-width: 440px;
-    padding: 20px;
-    display: flex; flex-direction: column;
-    gap: 12px;
-  }
-  .wrap > * {
-    animation: enter 0.6s var(--ease) backwards;
-  }
-  .wrap > *:nth-child(1) { animation-delay: 0.03s; }
-  .wrap > *:nth-child(2) { animation-delay: 0.08s; }
-  .wrap > *:nth-child(3) { animation-delay: 0.13s; }
-  .wrap > *:nth-child(4) { animation-delay: 0.18s; }
-  .wrap > *:nth-child(5) { animation-delay: 0.23s; }
-  .wrap > *:nth-child(6) { animation-delay: 0.28s; }
-  .wrap > *:nth-child(7) { animation-delay: 0.33s; }
-  .wrap > *:nth-child(8) { animation-delay: 0.38s; }
-  .wrap > *:nth-child(9) { animation-delay: 0.43s; }
-  @keyframes enter {
-    from { opacity: 0; transform: translateY(14px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.6;
+      animation: drift 24s ease-in-out infinite;
+    }
 
-  /* ── Card ── */
-  .card {
-    background: var(--card-bg);
-    backdrop-filter: blur(32px) saturate(1.4);
-    -webkit-backdrop-filter: blur(32px) saturate(1.4);
-    border: 1px solid var(--card-border);
-    border-radius: var(--r-lg);
-    box-shadow: var(--shadow);
-    transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
-  }
+    .glow-a {
+      width: 420px;
+      height: 420px;
+      top: -140px;
+      right: -80px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.07), transparent 70%);
+    }
 
-  /* ── Header ── */
-  .hdr { text-align: center; padding: 8px 0; }
+    .glow-b {
+      width: 380px;
+      height: 380px;
+      bottom: -120px;
+      left: -60px;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.05), transparent 70%);
+      animation-delay: -8s;
+      animation-direction: reverse;
+    }
 
-  .logo {
-    width: 64px; height: 64px;
-    margin: 0 auto 14px;
-    position: relative;
-  }
-  .logo-ring {
-    position: absolute; inset: -5px;
-    border-radius: 16px;
-    border: 1.5px solid var(--blue-100);
-    animation: ring 4.5s ease-in-out infinite;
-  }
-  @keyframes ring {
-    0%, 100% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.07); opacity: 0.7; }
-  }
-  .logo-icon {
-    width: 100%; height: 100%;
-    border-radius: 16px;
-    background: linear-gradient(145deg, var(--blue-500), var(--blue-600));
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: var(--shadow-blue);
-  }
-  .logo-icon svg { width: 30px; height: 30px; color: white; }
+    @keyframes drift {
 
-  .hdr h1 {
-    font-size: 22px; font-weight: 700;
-    color: var(--slate-900);
-    letter-spacing: -0.2px;
-  }
-  .hdr .org {
-    font-size: 13px; font-weight: 500;
-    color: var(--blue-600);
-    margin-top: 3px;
-  }
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
 
-  /* ── Time ── */
-  .time-box {
-    padding: 18px 24px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .time-box::after {
-    content: '';
-    position: absolute; bottom: 0; left: 18%; right: 18%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--blue-100), transparent);
-  }
-  .t-date { font-size: 14px; color: var(--slate-500); margin-bottom: 4px; }
-  .t-time {
-    font-size: 44px; font-weight: 700;
-    color: var(--slate-900);
-    letter-spacing: 2px; line-height: 1;
-    font-variant-numeric: tabular-nums;
-  }
-  .t-time .s {
-    font-size: 20px; color: var(--slate-300);
-    font-weight: 400; margin-left: 1px;
-  }
+      50% {
+        transform: translate(18px, -12px) scale(1.04);
+      }
+    }
 
-  /* ── Status ── */
-  .st-box { padding: 20px 22px; position: relative; overflow: hidden; }
-  .st-box .top-bar {
-    position: absolute; top: 0; left: 0; right: 0;
-    height: 3px; border-radius: 3px 3px 0 0;
-    opacity: 0; transition: opacity 0.5s var(--ease);
-  }
-  .st-box.s-ok .top-bar   { background: linear-gradient(90deg, var(--green-100), var(--green-500), var(--green-100)); opacity: 1; }
-  .st-box.s-warn .top-bar  { background: linear-gradient(90deg, var(--red-100), var(--red-500), var(--red-100)); opacity: 1; }
-  .st-box.s-pend .top-bar  { background: linear-gradient(90deg, var(--amber-100), var(--amber-500), var(--amber-100)); opacity: 0.6; }
+    .dots {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: radial-gradient(circle at 1px 1px, var(--slate-500) 0.5px, transparent 0.5px);
+      background-size: 28px 28px;
+    }
 
-  .st-row { display: flex; align-items: center; gap: 14px; }
+    /* ── Container ── */
+    .wrap {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 440px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
-  .st-ic {
-    width: 50px; height: 50px;
-    border-radius: var(--r-md);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; transition: all 0.4s var(--ease);
-  }
-  .st-ic svg { width: 24px; height: 24px; }
+    .wrap>* {
+      animation: enter 0.6s var(--ease) backwards;
+    }
 
-  .st-ic.ic-ok {
-    background: linear-gradient(135deg, var(--green-50), var(--green-100));
-    border: 1px solid rgba(5,150,105,0.12);
-    color: var(--green-600);
-    box-shadow: 0 3px 12px rgba(5,150,105,0.06);
-  }
-  .st-ic.ic-warn {
-    background: linear-gradient(135deg, var(--red-50), var(--red-100));
-    border: 1px solid rgba(220,38,38,0.08);
-    color: var(--red-600);
-    box-shadow: 0 3px 12px rgba(220,38,38,0.05);
-  }
-  .st-ic.ic-pend {
-    background: linear-gradient(135deg, var(--amber-50), var(--amber-100));
-    border: 1px solid rgba(217,119,6,0.08);
-    color: var(--amber-600);
-    animation: pulse 2.8s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(217,119,6,0); }
-    50% { box-shadow: 0 0 16px 0 rgba(217,119,6,0.07); }
-  }
+    .wrap>*:nth-child(1) {
+      animation-delay: 0.03s;
+    }
 
-  .st-info h2 { font-size: 15px; font-weight: 600; line-height: 1.4; }
-  .st-info h2.c-ok   { color: var(--green-600); }
-  .st-info h2.c-warn  { color: var(--red-600); }
-  .st-info h2.c-pend  { color: var(--amber-600); }
-  .st-info p { font-size: 13px; color: var(--slate-500); margin-top: 2px; line-height: 1.5; }
+    .wrap>*:nth-child(2) {
+      animation-delay: 0.08s;
+    }
 
-  .ip-row {
-    margin-top: 14px; padding-top: 14px;
-    border-top: 1px solid var(--card-border);
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .ip-row .lbl {
-    font-size: 11px; color: var(--slate-400);
-    letter-spacing: 1px; text-transform: uppercase; font-weight: 600;
-  }
-  .ip-row .val {
-    font-size: 13px; font-weight: 600;
-    color: var(--slate-600);
-    background: var(--slate-50);
-    padding: 4px 12px; border-radius: var(--r-sm);
-    border: 1px solid var(--card-border);
-    font-variant-numeric: tabular-nums;
-  }
+    .wrap>*:nth-child(3) {
+      animation-delay: 0.13s;
+    }
 
-  /* ── Warning ── */
-  .warn {
-    padding: 18px;
-    border-color: rgba(220,38,38,0.08) !important;
-    background: rgba(254,242,242,0.55) !important;
-    display: none;
-  }
-  .warn.show { display: block; animation: enter 0.45s var(--ease); }
-  .warn-top { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
-  .warn-top svg { width: 20px; height: 20px; color: var(--red-500); flex-shrink: 0; margin-top: 1px; }
-  .warn-top h3 { font-size: 14px; font-weight: 700; color: var(--red-600); }
-  .warn-top p { font-size: 13px; color: var(--slate-500); margin-top: 3px; line-height: 1.6; }
-  .warn-list {
-    background: white;
-    border-radius: var(--r-sm);
-    padding: 14px 14px 14px 18px;
-    border: 1px solid var(--card-border);
-    box-shadow: var(--shadow-sm);
-  }
-  .warn-list ol { margin: 0; padding-left: 16px; }
-  .warn-list li { font-size: 13px; color: var(--slate-500); margin-bottom: 5px; line-height: 1.7; }
-  .warn-list li:last-child { margin-bottom: 0; }
-  .warn-list strong { color: var(--slate-800); font-weight: 600; }
+    .wrap>*:nth-child(4) {
+      animation-delay: 0.18s;
+    }
 
-  /* ── Buttons ── */
-  .btn-primary {
-    display: flex; align-items: center; justify-content: center;
-    gap: 8px; width: 100%;
-    padding: 16px 24px;
-    border: none; border-radius: var(--r-lg);
-    font-family: 'Noto Sans Thai', sans-serif;
-    font-size: 16px; font-weight: 600;
-    cursor: pointer; position: relative; overflow: hidden;
-    transition: all var(--dur) var(--ease);
-    -webkit-tap-highlight-color: transparent;
-  }
-  .btn-primary svg { width: 20px; height: 20px; }
+    .wrap>*:nth-child(5) {
+      animation-delay: 0.23s;
+    }
 
-  .btn-primary.go {
-    background: linear-gradient(135deg, var(--blue-500), var(--blue-600));
-    color: white;
-    box-shadow: var(--shadow-blue);
-  }
-  .btn-primary.go:active {
-    transform: scale(0.97);
-    box-shadow: 0 2px 8px rgba(37,99,235,0.2);
-  }
-  .btn-primary.go .shine {
-    position: absolute; top: 0; left: -100%; width: 45%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
-    animation: shine 4s ease-in-out infinite;
-  }
-  @keyframes shine { 0% { left: -100%; } 50%,100% { left: 150%; } }
+    .wrap>*:nth-child(6) {
+      animation-delay: 0.28s;
+    }
 
-  .btn-primary.warn-go {
-    background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
-    color: white;
-    box-shadow: 0 4px 16px rgba(249,115,22,0.16);
-  }
-  .btn-primary.warn-go:active { transform: scale(0.97); }
+    .wrap>*:nth-child(7) {
+      animation-delay: 0.33s;
+    }
 
-  .btn-primary.off {
-    background: var(--slate-100);
-    color: var(--slate-300);
-    box-shadow: none; pointer-events: none;
-    border: 1px solid var(--card-border);
-  }
+    .wrap>*:nth-child(8) {
+      animation-delay: 0.38s;
+    }
 
-  .btn-sec {
-    display: flex; align-items: center; justify-content: center;
-    gap: 8px; width: 100%; padding: 13px;
-    border: 1px solid var(--card-border);
-    border-radius: var(--r-lg);
-    background: rgba(255,255,255,0.6);
-    font-family: 'Noto Sans Thai', sans-serif;
-    font-size: 14px; font-weight: 500;
-    color: var(--slate-400);
-    cursor: pointer; transition: all var(--dur) var(--ease);
-    -webkit-tap-highlight-color: transparent;
-  }
-  .btn-sec svg { width: 18px; height: 18px; }
-  .btn-sec:active {
-    background: white; transform: scale(0.98);
-    border-color: var(--card-border-hover);
-    color: var(--slate-600);
-  }
+    .wrap>*:nth-child(9) {
+      animation-delay: 0.43s;
+    }
 
-  /* ── Divider ── */
-  .sep { display: flex; align-items: center; gap: 14px; padding: 2px 0; }
-  .sep::before, .sep::after {
-    content: ''; flex: 1; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--slate-200), transparent);
-  }
-  .sep span {
-    font-size: 11px; color: var(--slate-300);
-    letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
-  }
+    @keyframes enter {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
 
-  /* ── Settings ── */
-  .stg { overflow: hidden; display: none; }
-  .stg.show { display: block; animation: enter 0.45s var(--ease); }
-  .stg-hd {
-    padding: 16px 20px;
-    border-bottom: 1px solid var(--card-border);
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .stg-hd h3 { font-size: 15px; font-weight: 700; color: var(--slate-900); }
-  .x-btn {
-    width: 30px; height: 30px;
-    border: 1px solid var(--card-border);
-    background: var(--slate-50);
-    border-radius: var(--r-sm); cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--slate-400); transition: all 0.2s var(--ease);
-  }
-  .x-btn:active { background: var(--slate-100); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  .stg-bd { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
-  .fld label {
-    display: block; font-size: 12px; font-weight: 600;
-    color: var(--slate-500); margin-bottom: 6px;
-  }
-  .fld input {
-    width: 100%; padding: 12px 14px;
-    border: 1.5px solid var(--slate-200);
-    border-radius: var(--r-md);
-    background: white;
-    font-family: 'Noto Sans Thai', sans-serif;
-    font-size: 14px; color: var(--slate-800);
-    outline: none; transition: all var(--dur) var(--ease);
-  }
-  .fld input::placeholder { color: var(--slate-300); }
-  .fld input:focus {
-    border-color: var(--blue-500);
-    box-shadow: 0 0 0 3px var(--blue-glow);
-  }
-  .fld .hint { font-size: 12px; color: var(--slate-400); margin-top: 4px; }
+    /* ── Card ── */
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(32px) saturate(1.4);
+      -webkit-backdrop-filter: blur(32px) saturate(1.4);
+      border: 1px solid var(--card-border);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow);
+      transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+    }
 
-  .btn-det {
-    padding: 11px;
-    background: var(--blue-50);
-    color: var(--blue-600);
-    border: 1px solid var(--blue-100);
-    border-radius: var(--r-md);
-    font-family: 'Noto Sans Thai', sans-serif;
-    font-size: 13px; font-weight: 600;
-    cursor: pointer; transition: all var(--dur) var(--ease);
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-  }
-  .btn-det svg { width: 16px; height: 16px; }
-  .btn-det:active { background: var(--blue-100); }
+    /* ── Header ── */
+    .hdr {
+      text-align: center;
+      padding: 8px 0;
+    }
 
-  .btn-save {
-    padding: 13px;
-    background: linear-gradient(135deg, var(--blue-500), var(--blue-600));
-    color: white;
-    border: none; border-radius: var(--r-md);
-    font-family: 'Noto Sans Thai', sans-serif;
-    font-size: 14px; font-weight: 700;
-    cursor: pointer; transition: all var(--dur) var(--ease);
-    box-shadow: 0 3px 10px rgba(37,99,235,0.14);
-  }
-  .btn-save:active { transform: scale(0.97); }
+    .logo {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 14px;
+      position: relative;
+    }
 
-  /* ── Toast ── */
-  .toast {
-    position: fixed; bottom: 28px; left: 50%;
-    transform: translateX(-50%) translateY(70px);
-    background: var(--slate-900);
-    color: white;
-    padding: 12px 22px;
-    border-radius: var(--r-md);
-    font-family: 'Noto Sans Thai', sans-serif;
-    font-size: 14px; font-weight: 500;
-    z-index: 100;
-    transition: transform 0.4s var(--ease);
-    white-space: nowrap;
-    box-shadow: 0 6px 24px rgba(15,23,42,0.2);
-  }
-  .toast.show { transform: translateX(-50%) translateY(0); }
+    .logo-ring {
+      position: absolute;
+      inset: -5px;
+      border-radius: 16px;
+      border: 1.5px solid var(--blue-100);
+      animation: ring 4.5s ease-in-out infinite;
+    }
 
-  .ftr {
-    text-align: center;
-    font-size: 11px; color: var(--slate-300); padding: 2px 0;
-  }
+    @keyframes ring {
 
-  @media (max-height: 540px) {
-    .hdr { padding: 2px 0; }
-    .logo { width: 48px; height: 48px; margin-bottom: 8px; }
-    .logo-icon svg { width: 22px; height: 22px; }
-    .logo-ring { border-radius: 12px; }
-    .logo-icon { border-radius: 12px; }
-    .hdr h1 { font-size: 18px; }
-    .t-time { font-size: 32px; }
-    .time-box { padding: 12px 20px; }
-  }
-</style>
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+
+      50% {
+        transform: scale(1.07);
+        opacity: 0.7;
+      }
+    }
+
+    .logo-icon {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      background: linear-gradient(145deg, var(--blue-500), var(--blue-600));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-blue);
+    }
+
+    .logo-icon svg {
+      width: 30px;
+      height: 30px;
+      color: white;
+    }
+
+    .hdr h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--slate-900);
+      letter-spacing: -0.2px;
+    }
+
+    .hdr .org {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--blue-600);
+      margin-top: 3px;
+    }
+
+    /* ── Time ── */
+    .time-box {
+      padding: 18px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .time-box::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 18%;
+      right: 18%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blue-100), transparent);
+    }
+
+    .t-date {
+      font-size: 14px;
+      color: var(--slate-500);
+      margin-bottom: 4px;
+    }
+
+    .t-time {
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--slate-900);
+      letter-spacing: 2px;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .t-time .s {
+      font-size: 20px;
+      color: var(--slate-300);
+      font-weight: 400;
+      margin-left: 1px;
+    }
+
+    /* ── Status ── */
+    .st-box {
+      padding: 20px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .st-box .top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: 3px 3px 0 0;
+      opacity: 0;
+      transition: opacity 0.5s var(--ease);
+    }
+
+    .st-box.s-ok .top-bar {
+      background: linear-gradient(90deg, var(--green-100), var(--green-500), var(--green-100));
+      opacity: 1;
+    }
+
+    .st-box.s-warn .top-bar {
+      background: linear-gradient(90deg, var(--red-100), var(--red-500), var(--red-100));
+      opacity: 1;
+    }
+
+    .st-box.s-pend .top-bar {
+      background: linear-gradient(90deg, var(--amber-100), var(--amber-500), var(--amber-100));
+      opacity: 0.6;
+    }
+
+    .st-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .st-ic {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.4s var(--ease);
+    }
+
+    .st-ic svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .st-ic.ic-ok {
+      background: linear-gradient(135deg, var(--green-50), var(--green-100));
+      border: 1px solid rgba(5, 150, 105, 0.12);
+      color: var(--green-600);
+      box-shadow: 0 3px 12px rgba(5, 150, 105, 0.06);
+    }
+
+    .st-ic.ic-warn {
+      background: linear-gradient(135deg, var(--red-50), var(--red-100));
+      border: 1px solid rgba(220, 38, 38, 0.08);
+      color: var(--red-600);
+      box-shadow: 0 3px 12px rgba(220, 38, 38, 0.05);
+    }
+
+    .st-ic.ic-pend {
+      background: linear-gradient(135deg, var(--amber-50), var(--amber-100));
+      border: 1px solid rgba(217, 119, 6, 0.08);
+      color: var(--amber-600);
+      animation: pulse 2.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(217, 119, 6, 0);
+      }
+
+      50% {
+        box-shadow: 0 0 16px 0 rgba(217, 119, 6, 0.07);
+      }
+    }
+
+    .st-info h2 {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .st-info h2.c-ok {
+      color: var(--green-600);
+    }
+
+    .st-info h2.c-warn {
+      color: var(--red-600);
+    }
+
+    .st-info h2.c-pend {
+      color: var(--amber-600);
+    }
+
+    .st-info p {
+      font-size: 13px;
+      color: var(--slate-500);
+      margin-top: 2px;
+      line-height: 1.5;
+    }
+
+    .ip-row {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ip-row .lbl {
+      font-size: 11px;
+      color: var(--slate-400);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .ip-row .val {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--slate-600);
+      background: var(--slate-50);
+      padding: 4px 12px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--card-border);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ── Warning ── */
+    .warn {
+      padding: 18px;
+      border-color: rgba(220, 38, 38, 0.08) !important;
+      background: rgba(254, 242, 242, 0.55) !important;
+      display: none;
+    }
+
+    .warn.show {
+      display: block;
+      animation: enter 0.45s var(--ease);
+    }
+
+    .warn-top {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .warn-top svg {
+      width: 20px;
+      height: 20px;
+      color: var(--red-500);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .warn-top h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--red-600);
+    }
+
+    .warn-top p {
+      font-size: 13px;
+      color: var(--slate-500);
+      margin-top: 3px;
+      line-height: 1.6;
+    }
+
+    .warn-list {
+      background: white;
+      border-radius: var(--r-sm);
+      padding: 14px 14px 14px 18px;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .warn-list ol {
+      margin: 0;
+      padding-left: 16px;
+    }
+
+    .warn-list li {
+      font-size: 13px;
+      color: var(--slate-500);
+      margin-bottom: 5px;
+      line-height: 1.7;
+    }
+
+    .warn-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .warn-list strong {
+      color: var(--slate-800);
+      font-weight: 600;
+    }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 16px 24px;
+      border: none;
+      border-radius: var(--r-lg);
+      font-family: 'Noto Sans Thai', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--dur) var(--ease);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-primary svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .btn-primary.go {
+      background: linear-gradient(135deg, var(--blue-500), var(--blue-600));
+      color: white;
+      box-shadow: var(--shadow-blue);
+    }
+
+    .btn-primary.go:active {
+      transform: scale(0.97);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+    }
+
+    .btn-primary.go .shine {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+      animation: shine 4s ease-in-out infinite;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -100%;
+      }
+
+      50%,
+      100% {
+        left: 150%;
+      }
+    }
+
+    .btn-primary.warn-go {
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      color: white;
+      box-shadow: 0 4px 16px rgba(249, 115, 22, 0.16);
+    }
+
+    .btn-primary.warn-go:active {
+      transform: scale(0.97);
+    }
+
+    .btn-primary.off {
+      background: var(--slate-100);
+      color: var(--slate-300);
+      box-shadow: none;
+      pointer-events: none;
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-sec {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 13px;
+      border: 1px solid var(--card-border);
+      border-radius: var(--r-lg);
+      background: rgba(255, 255, 255, 0.6);
+      font-family: 'Noto Sans Thai', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--slate-400);
+      cursor: pointer;
+      transition: all var(--dur) var(--ease);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-sec svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .btn-sec:active {
+      background: white;
+      transform: scale(0.98);
+      border-color: var(--card-border-hover);
+      color: var(--slate-600);
+    }
+
+    /* ── Divider ── */
+    .sep {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 2px 0;
+    }
+
+    .sep::before,
+    .sep::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--slate-200), transparent);
+    }
+
+    .sep span {
+      font-size: 11px;
+      color: var(--slate-300);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* ── Settings ── */
+    .stg {
+      overflow: hidden;
+      display: none;
+    }
+
+    .stg.show {
+      display: block;
+      animation: enter 0.45s var(--ease);
+    }
+
+    .stg-hd {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .stg-hd h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--slate-900);
+    }
+
+    .x-btn {
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--card-border);
+      background: var(--slate-50);
+      border-radius: var(--r-sm);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--slate-400);
+      transition: all 0.2s var(--ease);
+    }
+
+    .x-btn:active {
+      background: var(--slate-100);
+    }
+
+    .stg-bd {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .fld label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--slate-500);
+      margin-bottom: 6px;
+    }
+
+    .fld input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--slate-200);
+      border-radius: var(--r-md);
+      background: white;
+      font-family: 'Noto Sans Thai', sans-serif;
+      font-size: 14px;
+      color: var(--slate-800);
+      outline: none;
+      transition: all var(--dur) var(--ease);
+    }
+
+    .fld input::placeholder {
+      color: var(--slate-300);
+    }
+
+    .fld input:focus {
+      border-color: var(--blue-500);
+      box-shadow: 0 0 0 3px var(--blue-glow);
+    }
+
+    .fld .hint {
+      font-size: 12px;
+      color: var(--slate-400);
+      margin-top: 4px;
+    }
+
+    .btn-det {
+      padding: 11px;
+      background: var(--blue-50);
+      color: var(--blue-600);
+      border: 1px solid var(--blue-100);
+      border-radius: var(--r-md);
+      font-family: 'Noto Sans Thai', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--dur) var(--ease);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn-det svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .btn-det:active {
+      background: var(--blue-100);
+    }
+
+    .btn-save {
+      padding: 13px;
+      background: linear-gradient(135deg, var(--blue-500), var(--blue-600));
+      color: white;
+      border: none;
+      border-radius: var(--r-md);
+      font-family: 'Noto Sans Thai', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--dur) var(--ease);
+      box-shadow: 0 3px 10px rgba(37, 99, 235, 0.14);
+    }
+
+    .btn-save:active {
+      transform: scale(0.97);
+    }
+
+    /* ── Toast ── */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(70px);
+      background: var(--slate-900);
+      color: white;
+      padding: 12px 22px;
+      border-radius: var(--r-md);
+      font-family: 'Noto Sans Thai', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 100;
+      transition: transform 0.4s var(--ease);
+      white-space: nowrap;
+      box-shadow: 0 6px 24px rgba(15, 23, 42, 0.2);
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .ftr {
+      text-align: center;
+      font-size: 11px;
+      color: var(--slate-300);
+      padding: 2px 0;
+    }
+
+    @media (max-height: 540px) {
+      .hdr {
+        padding: 2px 0;
+      }
+
+      .logo {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 8px;
+      }
+
+      .logo-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .logo-ring {
+        border-radius: 12px;
+      }
+
+      .logo-icon {
+        border-radius: 12px;
+      }
+
+      .hdr h1 {
+        font-size: 18px;
+      }
+
+      .t-time {
+        font-size: 32px;
+      }
+
+      .time-box {
+        padding: 12px 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="ambient">
-  <div class="glow glow-a"></div>
-  <div class="glow glow-b"></div>
-</div>
-<div class="dots"></div>
+  <div class="ambient">
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+  </div>
+  <div class="dots"></div>
 
-<div class="wrap">
+  <div class="wrap">
 
-  <!-- Header -->
-  <div class="hdr">
-    <div class="logo">
-      <div class="logo-ring"></div>
-      <div class="logo-icon">
-        <!-- Lucide: shield-check -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
-          <path d="m9 12 2 2 4-4"/>
+    <!-- Header -->
+    <div class="hdr">
+      <div class="logo">
+        <div class="logo-ring"></div>
+        <div class="logo-icon">
+          <!-- Lucide: shield-check -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        </div>
+      </div>
+      <h1>ลงเวลาปฏิบัติงาน</h1>
+      <div class="org">สำนักงานปลัดกระทรวงยุติธรรม</div>
+    </div>
+
+    <!-- Time -->
+    <div class="time-box card">
+      <div class="t-date" id="dT"></div>
+      <div class="t-time" id="tT"></div>
+    </div>
+
+    <!-- Status -->
+    <div class="st-box card" id="sCard">
+      <div class="top-bar"></div>
+      <div class="st-row">
+        <div class="st-ic ic-pend" id="sIc">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 20h.01" />
+            <path d="M2 8.82a15 15 0 0 1 20 0" />
+            <path d="M5 12.859a10 10 0 0 1 14 0" />
+            <path d="M8.5 16.429a5 5 0 0 1 7 0" />
+          </svg>
+        </div>
+        <div class="st-info">
+          <h2 id="sT" class="c-pend">กำลังตรวจสอบ...</h2>
+          <p id="sD">ตรวจสอบเครือข่ายของคุณ</p>
+        </div>
+      </div>
+      <div class="ip-row" id="ipR" style="display:none">
+        <span class="lbl">IP Address</span>
+        <span class="val" id="ipV">—</span>
+      </div>
+    </div>
+
+    <!-- Warning -->
+    <div class="warn card" id="wP">
+      <div class="warn-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
+          <path d="M12 9v4" />
+          <path d="M12 17h.01" />
         </svg>
+        <div>
+          <h3>อาจลงเวลาเป็น "ที่บ้าน"</h3>
+          <p>ตรวจพบว่าคุณอาจไม่ได้ใช้ WiFi สำนักงาน<br>หากอยู่ที่ทำงาน กรุณาทำตามขั้นตอนนี้</p>
+        </div>
+      </div>
+      <div class="warn-list">
+        <ol>
+          <li>ปิด <strong>Mobile Data</strong> (เครือข่ายมือถือ)</li>
+          <li>เชื่อมต่อ <strong>WiFi สำนักงาน</strong></li>
+          <li>กด <strong>"ตรวจสอบอีกครั้ง"</strong> ด้านล่าง</li>
+        </ol>
       </div>
     </div>
-    <h1>ลงเวลาปฏิบัติงาน</h1>
-    <div class="org">สำนักงานปลัดกระทรวงยุติธรรม</div>
-  </div>
 
-  <!-- Time -->
-  <div class="time-box card">
-    <div class="t-date" id="dT"></div>
-    <div class="t-time" id="tT"></div>
-  </div>
-
-  <!-- Status -->
-  <div class="st-box card" id="sCard">
-    <div class="top-bar"></div>
-    <div class="st-row">
-      <div class="st-ic ic-pend" id="sIc">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/>
-        </svg>
-      </div>
-      <div class="st-info">
-        <h2 id="sT" class="c-pend">กำลังตรวจสอบ...</h2>
-        <p id="sD">ตรวจสอบเครือข่ายของคุณ</p>
-      </div>
-    </div>
-    <div class="ip-row" id="ipR" style="display:none">
-      <span class="lbl">IP Address</span>
-      <span class="val" id="ipV">—</span>
-    </div>
-  </div>
-
-  <!-- Warning -->
-  <div class="warn card" id="wP">
-    <div class="warn-top">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/>
-        <path d="M12 9v4"/><path d="M12 17h.01"/>
+    <!-- Go -->
+    <button class="btn-primary off" id="bGo">
+      <span class="shine"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M5 12h14" />
+        <path d="m12 5 7 7-7 7" />
       </svg>
-      <div>
-        <h3>อาจลงเวลาเป็น "ที่บ้าน"</h3>
-        <p>ตรวจพบว่าคุณอาจไม่ได้ใช้ WiFi สำนักงาน<br>หากอยู่ที่ทำงาน กรุณาทำตามขั้นตอนนี้</p>
+      <span id="bGoT">กำลังตรวจสอบ...</span>
+    </button>
+
+    <!-- Recheck -->
+    <button class="btn-sec" id="bRe" style="display:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+        <path d="M21 3v5h-5" />
+        <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+        <path d="M8 16H3v5" />
+      </svg>
+      ตรวจสอบอีกครั้ง
+    </button>
+
+    <div class="sep"><span>ตั้งค่า</span></div>
+
+    <button class="btn-sec" id="bStg">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path
+          d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
+      ตั้งค่าระบบ
+    </button>
+
+    <!-- Settings -->
+    <div class="stg card" id="stgP">
+      <div class="stg-hd">
+        <h3>การตั้งค่า</h3>
+        <button class="x-btn" id="bClose">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="stg-bd">
+        <div class="fld">
+          <label>URL ระบบลงเวลา</label>
+          <input type="url" id="iUrl" placeholder="https://intranet.moj.go.th/">
+          <div class="hint">URL ของหน้าเว็บลงเวลาปฏิบัติงาน</div>
+        </div>
+        <div class="fld">
+          <label>IP สำนักงาน</label>
+          <input type="text" id="iIp" placeholder="เช่น 203.xxx.xxx.xxx">
+          <div class="hint">ใส่หลาย IP คั่นด้วย , (comma)</div>
+        </div>
+        <button class="btn-det" id="bDet">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M19.07 4.93A10 10 0 0 0 6.99 3.34" />
+            <path d="M4 6h.01" />
+            <path d="M2.29 9.62A10 10 0 1 0 21.31 8.35" />
+            <path d="M16.24 7.76A6 6 0 1 0 8.23 16.67" />
+            <path d="M12 18h.01" />
+            <path d="M17.99 11.66A6 6 0 0 1 15.77 16.67" />
+            <circle cx="12" cy="12" r="2" />
+            <path d="m13.41 10.59 5.66-5.66" />
+          </svg>
+          ตรวจจับ IP ปัจจุบัน (กดตอนเชื่อม WiFi สำนักงาน)
+        </button>
+        <button class="btn-save" id="bSave">บันทึกการตั้งค่า</button>
       </div>
     </div>
-    <div class="warn-list">
-      <ol>
-        <li>ปิด <strong>Mobile Data</strong> (เครือข่ายมือถือ)</li>
-        <li>เชื่อมต่อ <strong>WiFi สำนักงาน</strong></li>
-        <li>กด <strong>"ตรวจสอบอีกครั้ง"</strong> ด้านล่าง</li>
-      </ol>
-    </div>
+
+    <div class="ftr">ทำครั้งแรกครั้งเดียว · บันทึก IP สำนักงานในตั้งค่า</div>
   </div>
 
-  <!-- Go -->
-  <button class="btn-primary off" id="bGo" onclick="go()">
-    <span class="shine"></span>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-    </svg>
-    <span id="bGoT">กำลังตรวจสอบ...</span>
-  </button>
+  <div class="toast" id="tst"></div>
 
-  <!-- Recheck -->
-  <button class="btn-sec" id="bRe" onclick="chk()" style="display:none">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/>
-      <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>
-    </svg>
-    ตรวจสอบอีกครั้ง
-  </button>
+  <script>
+    /* ── ค่าคงที่และ Element References ── */
+    const STORAGE_KEY = 'moj_wifi_v5';
 
-  <div class="sep"><span>ตั้งค่า</span></div>
+    const el = {
+      dateText: document.getElementById('dT'),
+      timeText: document.getElementById('tT'),
+      statusCard: document.getElementById('sCard'),
+      statusIcon: document.getElementById('sIc'),
+      statusTitle: document.getElementById('sT'),
+      statusDesc: document.getElementById('sD'),
+      ipRow: document.getElementById('ipR'),
+      ipValue: document.getElementById('ipV'),
+      warningPanel: document.getElementById('wP'),
+      btnGo: document.getElementById('bGo'),
+      btnGoText: document.getElementById('bGoT'),
+      btnRecheck: document.getElementById('bRe'),
+      btnSettings: document.getElementById('bStg'),
+      btnClose: document.getElementById('bClose'),
+      btnDetect: document.getElementById('bDet'),
+      btnSave: document.getElementById('bSave'),
+      settingsPanel: document.getElementById('stgP'),
+      inputUrl: document.getElementById('iUrl'),
+      inputIp: document.getElementById('iIp'),
+      toast: document.getElementById('tst'),
+    };
 
-  <button class="btn-sec" onclick="togStg()">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
-      <circle cx="12" cy="12" r="3"/>
-    </svg>
-    ตั้งค่าระบบ
-  </button>
+    /* ── Lucide SVG Icons ── */
+    const ICONS = {
+      wifi: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>',
+      ok: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>',
+      warn: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>',
+      phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>',
+    };
 
-  <!-- Settings -->
-  <div class="stg card" id="stgP">
-    <div class="stg-hd">
-      <h3>การตั้งค่า</h3>
-      <button class="x-btn" onclick="togStg()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
-        </svg>
-      </button>
-    </div>
-    <div class="stg-bd">
-      <div class="fld">
-        <label>URL ระบบลงเวลา</label>
-        <input type="url" id="iUrl" placeholder="https://intranet.moj.go.th/">
-        <div class="hint">URL ของหน้าเว็บลงเวลาปฏิบัติงาน</div>
-      </div>
-      <div class="fld">
-        <label>IP สำนักงาน</label>
-        <input type="text" id="iIp" placeholder="เช่น 203.xxx.xxx.xxx">
-        <div class="hint">ใส่หลาย IP คั่นด้วย , (comma)</div>
-      </div>
-      <button class="btn-det" onclick="detIp()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19.07 4.93A10 10 0 0 0 6.99 3.34"/><path d="M4 6h.01"/>
-          <path d="M2.29 9.62A10 10 0 1 0 21.31 8.35"/><path d="M16.24 7.76A6 6 0 1 0 8.23 16.67"/>
-          <path d="M12 18h.01"/><path d="M17.99 11.66A6 6 0 0 1 15.77 16.67"/>
-          <circle cx="12" cy="12" r="2"/><path d="m13.41 10.59 5.66-5.66"/>
-        </svg>
-        ตรวจจับ IP ปัจจุบัน (กดตอนเชื่อม WiFi สำนักงาน)
-      </button>
-      <button class="btn-save" onclick="svStg()">บันทึกการตั้งค่า</button>
-    </div>
-  </div>
+    /* ── สถานะเครือข่ายแต่ละแบบ ── */
+    const STATUS_MAP = {
+      checking: { card: 's-pend', icon: 'ic-pend', svg: ICONS.wifi, title: 'กำลังตรวจสอบเครือข่าย...', desc: 'รอสักครู่', color: 'c-pend' },
+      ok: { card: 's-ok', icon: 'ic-ok', svg: ICONS.ok, title: 'เชื่อมต่อ WiFi สำนักงาน', desc: 'พร้อมลงเวลา — จะบันทึกเป็น "ที่ทำงาน"', color: 'c-ok' },
+      wifiUnknown: { card: 's-ok', icon: 'ic-ok', svg: ICONS.wifi, title: 'เชื่อมต่อ WiFi อยู่', desc: 'ตรวจพบ WiFi — หากเป็น WiFi สำนักงาน สามารถลงเวลาได้', color: 'c-ok' },
+      wifiNotOffice: { card: 's-warn', icon: 'ic-warn', svg: ICONS.warn, title: 'ไม่ใช่ WiFi สำนักงาน', desc: 'IP ไม่ตรงกับ WiFi สำนักงานที่บันทึกไว้', color: 'c-warn', showWarning: true },
+      cellular: { card: 's-warn', icon: 'ic-warn', svg: ICONS.phone, title: 'ใช้เครือข่ายมือถือ (Mobile Data)', desc: 'ลงเวลาตอนนี้อาจบันทึกเป็น "ที่บ้าน"', color: 'c-warn', showWarning: true },
+      ipMismatch: { card: 's-warn', icon: 'ic-warn', svg: ICONS.warn, title: 'IP ไม่ตรงกับสำนักงาน', desc: 'อาจใช้ Mobile Data หรือ WiFi อื่นอยู่', color: 'c-warn', showWarning: true },
+      unknown: { card: 's-pend', icon: 'ic-pend', svg: ICONS.warn, title: 'ไม่สามารถระบุเครือข่ายได้', desc: 'กรุณาตรวจสอบว่าเชื่อม WiFi สำนักงานแล้ว', color: 'c-pend', showRecheck: true },
+    };
 
-  <div class="ftr">ทำครั้งแรกครั้งเดียว · บันทึก IP สำนักงานในตั้งค่า</div>
-</div>
+    /* ── การจัดการ Config (localStorage) ── */
+    function loadConfig() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          return JSON.parse(raw);
+        }
+      } catch (e) {
+        console.error('โหลด config ไม่สำเร็จ:', e);
+      }
+      return { url: 'https://intranet.moj.go.th/', officeIps: [] };
+    }
 
-<div class="toast" id="tst"></div>
+    function saveConfig(config) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
+    }
 
-<script>
-const K='moj_wifi_v5';
-function ldC(){try{const r=localStorage.getItem(K);if(r)return JSON.parse(r)}catch(e){}return{u:'https://intranet.moj.go.th/',p:[]}}
-function svC(c){localStorage.setItem(K,JSON.stringify(c))}
-let cf=ldC(),cIp=null,nOk=null;
+    let config = loadConfig();
+    let currentIp = null;
+    let networkOk = null;
 
-/* Lucide SVGs */
-const I={
-  wifi:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>`,
-  ok:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>`,
-  warn:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>`,
-  phone:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>`,
-};
+    /* ── นาฬิกา ── */
+    function updateClock() {
+      const now = new Date();
 
-/* Clock */
-function tick(){
-  const n=new Date();
-  document.getElementById('dT').textContent=n.toLocaleDateString('th-TH',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-  const h=String(n.getHours()).padStart(2,'0'),m=String(n.getMinutes()).padStart(2,'0'),s=String(n.getSeconds()).padStart(2,'0');
-  document.getElementById('tT').innerHTML=h+':'+m+'<span class="s">:'+s+'</span>';
-}
-setInterval(tick,1000);tick();
+      el.dateText.textContent = now.toLocaleDateString('th-TH', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
 
-/* Network */
-async function chk(){
-  setSt('checking');
-  const cn=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
-  let ct=cn?.type||null;
-  try{const r=await fetch('https://api.ipify.org?format=json',{cache:'no-store'});cIp=(await r.json()).ip}
-  catch{try{const r=await fetch('https://httpbin.org/ip',{cache:'no-store'});cIp=(await r.json()).origin}catch{cIp=null}}
-  let io=cIp&&cf.p?.length>0&&cf.p.some(x=>x.trim()===cIp.trim());
-  if(io){nOk=true;setSt('ok')}
-  else if(ct==='wifi'){cf.p?.length>0?(nOk=false,setSt('wno')):(nOk=true,setSt('wun'))}
-  else if(ct==='cellular'){nOk=false;setSt('cell')}
-  else{cf.p?.length>0&&!io?(nOk=false,setSt('uno')):io?(nOk=true,setSt('ok')):(nOk=null,setSt('unk'))}
-  if(cIp){document.getElementById('ipR').style.display='flex';document.getElementById('ipV').textContent=cIp}
-  updBtn();
-}
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      el.timeText.innerHTML = hours + ':' + minutes + '<span class="s">:' + seconds + '</span>';
+    }
 
-function setSt(s){
-  const cd=document.getElementById('sCard'),ic=document.getElementById('sIc'),
-    tt=document.getElementById('sT'),td=document.getElementById('sD'),
-    wp=document.getElementById('wP'),re=document.getElementById('bRe');
-  cd.className='st-box card';ic.className='st-ic';tt.className='';
-  wp.classList.remove('show');re.style.display='none';
-  const M={
-    checking:{c:'s-pend',i:'ic-pend',v:I.wifi,t:'กำลังตรวจสอบเครือข่าย...',d:'รอสักครู่',tc:'c-pend'},
-    ok:{c:'s-ok',i:'ic-ok',v:I.ok,t:'เชื่อมต่อ WiFi สำนักงาน',d:'พร้อมลงเวลา — จะบันทึกเป็น "ที่ทำงาน"',tc:'c-ok'},
-    wun:{c:'s-ok',i:'ic-ok',v:I.wifi,t:'เชื่อมต่อ WiFi อยู่',d:'ตรวจพบ WiFi — หากเป็น WiFi สำนักงาน สามารถลงเวลาได้',tc:'c-ok'},
-    wno:{c:'s-warn',i:'ic-warn',v:I.warn,t:'ไม่ใช่ WiFi สำนักงาน',d:'IP ไม่ตรงกับ WiFi สำนักงานที่บันทึกไว้',tc:'c-warn',w:1},
-    cell:{c:'s-warn',i:'ic-warn',v:I.phone,t:'ใช้เครือข่ายมือถือ (Mobile Data)',d:'ลงเวลาตอนนี้อาจบันทึกเป็น "ที่บ้าน"',tc:'c-warn',w:1},
-    uno:{c:'s-warn',i:'ic-warn',v:I.warn,t:'IP ไม่ตรงกับสำนักงาน',d:'อาจใช้ Mobile Data หรือ WiFi อื่นอยู่',tc:'c-warn',w:1},
-    unk:{c:'s-pend',i:'ic-pend',v:I.warn,t:'ไม่สามารถระบุเครือข่ายได้',d:'กรุณาตรวจสอบว่าเชื่อม WiFi สำนักงานแล้ว',tc:'c-pend',r:1},
-  };
-  const m=M[s]||M.checking;
-  cd.classList.add(m.c);ic.classList.add(m.i);ic.innerHTML=m.v;
-  tt.classList.add(m.tc);tt.textContent=m.t;td.textContent=m.d;
-  if(m.w){wp.classList.add('show');re.style.display='flex'}
-  if(m.r)re.style.display='flex';
-}
+    setInterval(updateClock, 1000);
+    updateClock();
 
-function updBtn(){
-  const b=document.getElementById('bGo'),t=document.getElementById('bGoT');
-  b.className='btn-primary';
-  if(!cf.u){b.classList.add('off');t.textContent='กรุณาตั้งค่า URL ลงเวลาก่อน';return}
-  if(nOk===true){b.classList.add('go');t.textContent='ไปหน้าลงเวลา'}
-  else if(nOk===false){b.classList.add('warn-go');t.textContent='ลงเวลาต่อ (เสี่ยงขึ้น "ที่บ้าน")'}
-  else{b.classList.add('go');t.textContent='ไปหน้าลงเวลา'}
-}
+    /* ── ดึง Public IP ── */
+    async function fetchPublicIp() {
+      try {
+        const response = await fetch('https://api.ipify.org?format=json', { cache: 'no-store' });
+        const data = await response.json();
+        return data.ip;
+      } catch {
+        try {
+          const response = await fetch('https://httpbin.org/ip', { cache: 'no-store' });
+          const data = await response.json();
+          return data.origin;
+        } catch {
+          return null;
+        }
+      }
+    }
 
-function go(){if(!cf.u){toast('กรุณาตั้งค่า URL ก่อน');return}window.location.href=cf.u}
+    /* ── ตรวจสอบเครือข่าย ── */
+    async function checkNetwork() {
+      setStatus('checking');
 
-/* Settings */
-function togStg(){
-  const p=document.getElementById('stgP');
-  if(!p.classList.contains('show')){document.getElementById('iUrl').value=cf.u||'';document.getElementById('iIp').value=(cf.p||[]).join(', ')}
-  p.classList.toggle('show');
-}
-function svStg(){
-  cf.u=document.getElementById('iUrl').value.trim();
-  const raw=document.getElementById('iIp').value.trim();
-  cf.p=raw?raw.split(',').map(s=>s.trim()).filter(Boolean):[];
-  svC(cf);toast('บันทึกเรียบร้อย ✓');togStg();chk();
-}
-async function detIp(){
-  toast('กำลังตรวจจับ IP...');
-  try{const r=await fetch('https://api.ipify.org?format=json',{cache:'no-store'});const ip=(await r.json()).ip;
-  const inp=document.getElementById('iIp'),ex=inp.value.trim();
-  if(ex&&!ex.includes(ip))inp.value=ex+', '+ip;else if(!ex)inp.value=ip;
-  toast('ตรวจพบ IP: '+ip+' ✓')}catch{toast('ตรวจจับไม่สำเร็จ ลองใหม่')}
-}
-function toast(m){const t=document.getElementById('tst');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800)}
+      const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      const connectionType = connection?.type || null;
 
-chk();
-if(!cf.p||cf.p.length===0)setTimeout(()=>toast('กด "ตั้งค่า" เพื่อบันทึก IP สำนักงาน'),1500);
-</script>
+      currentIp = await fetchPublicIp();
+
+      const hasOfficeIps = config.officeIps && config.officeIps.length > 0;
+      const isOfficeIp = currentIp && hasOfficeIps &&
+        config.officeIps.some(ip => ip.trim() === currentIp.trim());
+
+      if (isOfficeIp) {
+        networkOk = true;
+        setStatus('ok');
+      } else if (connectionType === 'wifi') {
+        if (hasOfficeIps) {
+          networkOk = false;
+          setStatus('wifiNotOffice');
+        } else {
+          networkOk = true;
+          setStatus('wifiUnknown');
+        }
+      } else if (connectionType === 'cellular') {
+        networkOk = false;
+        setStatus('cellular');
+      } else {
+        if (hasOfficeIps && !isOfficeIp) {
+          networkOk = false;
+          setStatus('ipMismatch');
+        } else if (isOfficeIp) {
+          networkOk = true;
+          setStatus('ok');
+        } else {
+          networkOk = null;
+          setStatus('unknown');
+        }
+      }
+
+      if (currentIp) {
+        el.ipRow.style.display = 'flex';
+        el.ipValue.textContent = currentIp;
+      }
+
+      updateGoButton();
+    }
+
+    /* ── อัปเดต UI สถานะ ── */
+    function setStatus(statusKey) {
+      const status = STATUS_MAP[statusKey] || STATUS_MAP.checking;
+
+      el.statusCard.className = 'st-box card';
+      el.statusIcon.className = 'st-ic';
+      el.statusTitle.className = '';
+      el.warningPanel.classList.remove('show');
+      el.btnRecheck.style.display = 'none';
+
+      el.statusCard.classList.add(status.card);
+      el.statusIcon.classList.add(status.icon);
+      el.statusIcon.innerHTML = status.svg;
+      el.statusTitle.classList.add(status.color);
+      el.statusTitle.textContent = status.title;
+      el.statusDesc.textContent = status.desc;
+
+      if (status.showWarning) {
+        el.warningPanel.classList.add('show');
+        el.btnRecheck.style.display = 'flex';
+      }
+
+      if (status.showRecheck) {
+        el.btnRecheck.style.display = 'flex';
+      }
+    }
+
+    /* ── อัปเดตปุ่มลงเวลา ── */
+    function updateGoButton() {
+      el.btnGo.className = 'btn-primary';
+
+      if (!config.url) {
+        el.btnGo.classList.add('off');
+        el.btnGoText.textContent = 'กรุณาตั้งค่า URL ลงเวลาก่อน';
+        return;
+      }
+
+      if (networkOk === true) {
+        el.btnGo.classList.add('go');
+        el.btnGoText.textContent = 'ไปหน้าลงเวลา';
+      } else if (networkOk === false) {
+        el.btnGo.classList.add('warn-go');
+        el.btnGoText.textContent = 'ลงเวลาต่อ (เสี่ยงขึ้น "ที่บ้าน")';
+      } else {
+        el.btnGo.classList.add('go');
+        el.btnGoText.textContent = 'ไปหน้าลงเวลา';
+      }
+    }
+
+    /* ── ไปหน้าลงเวลา (พร้อมตรวจ URL) ── */
+    function goToCheckin() {
+      if (!config.url) {
+        showToast('กรุณาตั้งค่า URL ก่อน');
+        return;
+      }
+
+      try {
+        const parsed = new URL(config.url);
+        if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+          showToast('URL ไม่ถูกต้อง กรุณาตรวจสอบการตั้งค่า');
+          return;
+        }
+      } catch {
+        showToast('URL ไม่ถูกต้อง กรุณาตรวจสอบการตั้งค่า');
+        return;
+      }
+
+      window.location.href = config.url;
+    }
+
+    /* ── ตั้งค่า ── */
+    function toggleSettings() {
+      if (!el.settingsPanel.classList.contains('show')) {
+        el.inputUrl.value = config.url || '';
+        el.inputIp.value = (config.officeIps || []).join(', ');
+      }
+      el.settingsPanel.classList.toggle('show');
+    }
+
+    function saveSettings() {
+      config.url = el.inputUrl.value.trim();
+
+      const rawIp = el.inputIp.value.trim();
+      config.officeIps = rawIp
+        ? rawIp.split(',').map(s => s.trim()).filter(Boolean)
+        : [];
+
+      saveConfig(config);
+      showToast('บันทึกเรียบร้อย ✓');
+      toggleSettings();
+      checkNetwork();
+    }
+
+    async function detectCurrentIp() {
+      showToast('กำลังตรวจจับ IP...');
+
+      try {
+        const response = await fetch('https://api.ipify.org?format=json', { cache: 'no-store' });
+        const data = await response.json();
+        const ip = data.ip;
+
+        const existing = el.inputIp.value.trim();
+        if (existing && !existing.includes(ip)) {
+          el.inputIp.value = existing + ', ' + ip;
+        } else if (!existing) {
+          el.inputIp.value = ip;
+        }
+
+        showToast('ตรวจพบ IP: ' + ip + ' ✓');
+      } catch {
+        showToast('ตรวจจับไม่สำเร็จ ลองใหม่');
+      }
+    }
+
+    /* ── Toast แจ้งเตือน ── */
+    function showToast(message) {
+      el.toast.textContent = message;
+      el.toast.classList.add('show');
+      setTimeout(() => el.toast.classList.remove('show'), 2800);
+    }
+
+    /* ── ผูก Event Listeners ── */
+    el.btnGo.addEventListener('click', goToCheckin);
+    el.btnRecheck.addEventListener('click', checkNetwork);
+    el.btnSettings.addEventListener('click', toggleSettings);
+    el.btnClose.addEventListener('click', toggleSettings);
+    el.btnDetect.addEventListener('click', detectCurrentIp);
+    el.btnSave.addEventListener('click', saveSettings);
+
+    /* ── เริ่มต้นทำงาน ── */
+    checkNetwork();
+
+    if (!config.officeIps || config.officeIps.length === 0) {
+      setTimeout(() => showToast('กด "ตั้งค่า" เพื่อบันทึก IP สำนักงาน'), 1500);
+    }
+  </script>
 </body>
+
 </html>
